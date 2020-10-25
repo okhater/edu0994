@@ -10,24 +10,22 @@
   <body>
     <h1>Алгоритм Пасхи!</h1>
 	<script>
-		var date = new Date();
-		var year = date.getFullYear();
+		var today = new Date();
+	    var year = today.getFullYear();
 		var paskha = 0;
 
 		let a = (year % 19);
 		let b = (year % 4);
 		let c = (year % 7);
 		let d = ((19*a + 15) % 30);
-		let e = ((2*b + 4*c + 6*d + 6) % 7);
+		let e = ((2*b) + (4*c) + (6*d) +6)%7;
 		let f = (d+e);
-		if (f<=26 && date<=paskha){
-			paskha = "April (4+f), year";
-		}else if(f>26 && date<=paskha){
-			paskha = "May (f-26), year";
-		}if(f<=26 && date>paskha){
-			paskha = "April (4+f), (year+1)";
-		}else if(f>26 && date<=paskha){
-			paskha = "May (f-26), (year+1)";
+		if (f<=26 && today<=paskha){
+		paskha = `april ${f+4}, ${year}`;
+		}else if(f>26 && today<=paskha){
+		paskha = `may 26, ${year}`;
+	    }if(today>paskha){
+		  paskha = `may 26, ${year+1}`;
 		}
 		var target_date = new Date(paskha).getTime();
 		console.log(paskha);
